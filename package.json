@@ -1,0 +1,27 @@
+{
+  "name": "slack-emoji-exporter",
+  "version": "1.0.0",
+  "description": "for export all emojis from slack workspace",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Terfno/slack-emoji-exporter.git"
+  },
+  "keywords": [
+    "slack"
+  ],
+  "author": "terfno",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Terfno/slack-emoji-exporter/issues"
+  },
+  "homepage": "https://github.com/Terfno/slack-emoji-exporter#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "request": "^2.88.2",
+    "slack-node": "^0.1.8"
+  }
+}
