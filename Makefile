@@ -1,8 +1,16 @@
-INAME:=node:14.2.0-alpine3.11
+INAME:=terfno/see
 CNAME:=see
 
-dev:
-	@docker run -it --rm --name ${CNAME} -v ${PWD}:/node -w /node ${INAME} sh
+set:
+	@mkdir emojis
+	@touch .env &&\
+	echo "Put the apitoken as a key in .env"
+
+ready:
+	@docker build -t '${INAME}' .
+
+go:
+	@docker run -v ${PWD}/emojis:/node/emojis --name ${CNAME} ${INAME}
 
 exec:
 	@docker exec -it ${CNAME} sh
