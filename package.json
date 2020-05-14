@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/Terfno/slack-emoji-exporter/issues"
   },
-  "homepage": "https://github.com/Terfno/slack-emoji-exporter#readme"
+  "homepage": "https://github.com/Terfno/slack-emoji-exporter#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "request": "^2.88.2",
+    "slack-node": "^0.1.8"
+  }
 }
