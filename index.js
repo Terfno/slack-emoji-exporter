@@ -2,28 +2,36 @@ const Slack = require("slack-node");
 const request = require("request");
 const fs = require("fs");
 const dotenv = require("dotenv").config();
+const apiToken = process.env.apitoken;
 
-apiToken = process.env.apitoken;
-slack = new Slack(apiToken);
+const getEmoji = () => {
+  return new Promise((resolve) => {
+    var slack = new Slack(apiToken);
 
-slack.api("emoji.list", (err, response) => {
-  for (key in response.emoji) {
-    url = response.emoji[key];
+    slack.api("emoji.list", (err, response) => {
+      for (key in response.emoji) {
+        url = response.emoji[key];
 
-    // ignore alias
-    if (url.match(/alias/)) {
-      continue;
-    }
+        // ignore alias
+        if (url.match(/alias/)) {
+          continue;
+        }
 
-    // target
-    extention = url.match(/\.[^\.]+$/);
+        // target
+        extention = url.match(/\.[^\.]+$/);
 
-    request
-      .get(url)
-      .on("response", (res) => {})
-      .pipe(fs.createWriteStream("emojis/" + key + extention));
-  }
+        request
+          .get(url)
+          .on("response", (res) => {})
+          .pipe(fs.createWriteStream("emojis/" + key + extention));
+      }
+      resolve("exporting " + Object.keys(response.emoji).length + " emojis");
+    });
+  });
+};
+
+getEmoji().then((res) => {
+  console.log(res);
+  console.log("====\ndone.");
+  process.exit();
 });
-
-console.log("exporting done.");
-process.exit();
