@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Terfno/slack-emoji-exporter#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "fs": "0.0.1-security",
     "request": "^2.88.2",
     "slack-node": "^0.1.8"
