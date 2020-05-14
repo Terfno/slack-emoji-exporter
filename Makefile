@@ -1,14 +1,8 @@
-INAME:=terfno/see
+INAME:=node:14.2.0-alpine3.11
 CNAME:=see
 
 dev:
-	@docker run -it --rm alpine:3.11 sh
-
-build:
-	@docker build -t '${INAME}' .
-
-run:
-	@docker run --name ${CNAME} -itd ${INAME} sh
+	@docker run -it --rm --name ${CNAME} -v ${PWD}:/node -w /node ${INAME} sh
 
 exec:
 	@docker exec -it ${CNAME} sh
@@ -19,12 +13,6 @@ start:
 stop:
 	@docker stop ${CNAME}
 
-push:
-	@docker push ${INAME}
-
 # rm
 rm:
 	@docker rm ${CNAME}
-
-rmi:
-	@docker rmi ${INAME}
