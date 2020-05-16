@@ -10,7 +10,7 @@ ready:
 	@docker build -t '${INAME}' .
 
 go:
-	@docker run -v ${PWD}/emojis:/node/emojis --name ${CNAME} ${INAME}
+	@docker run --rm -v ${PWD}/emojis:/node/emojis --name ${CNAME} ${INAME}
 
 exec:
 	@docker exec -it ${CNAME} sh
