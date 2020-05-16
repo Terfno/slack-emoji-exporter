@@ -32,6 +32,4 @@ const getEmoji = () => {
 
 getEmoji().then((res) => {
   console.log(res);
-  console.log("====\ndone.");
-  process.exit();
 });
