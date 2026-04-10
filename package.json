@@ -23,6 +23,6 @@
     "dotenv": "^8.2.0",
     "fs": "0.0.1-security",
     "request": "^2.88.2",
-    "slack-node": "^0.1.8"
+    "slack-node": "^0.3.2"
   }
 }
